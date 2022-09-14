@@ -1,0 +1,32 @@
+
+container:
+  image:
+    repository: 334033969502.dkr.ecr.eu-west-3.amazonaws.com/guillaume/demo-k8s
+    tag: latest
+    pullPolicy: Always
+  port: 8080
+  resources:
+    limits:
+      memory: '128Mi'
+      cpu: '1'
+    requests:
+      memory: '64Mi'
+      cpu: '0.5'
+  probe:
+    path: /healthz
+    timeoutSeconds: 10
+  liveness:
+    scheme: HTTP
+    initialDelaySeconds: 300
+    periodSeconds: 30
+    timeoutSeconds: 10
+  maxSurge: 2
+  maxUnavailable: 0
+hpa:
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 5
+  averageCpuUtilization: 70
+service:
+  type: ClusterIP
+  port: 80

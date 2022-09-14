@@ -1,0 +1,7 @@
+# ingress-nginx:
+#   # Default values are available here: https://github.com/kubernetes/ingress-nginx/blob/main/charts/ingress-nginx/values.yaml
+#   controller:
+#     metrics:
+#       enabled: true
+#       serviceMonitor:
+#         enabled: true

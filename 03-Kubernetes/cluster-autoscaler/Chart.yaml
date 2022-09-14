@@ -1,0 +1,9 @@
+apiVersion: v1
+name: cluster-autoscaler
+description: A deployment of cluster-autoscaler
+type: application
+version: 0.1.0
+dependencies:
+  - name: cluster-autoscaler
+    repository: https://kubernetes.github.io/autoscaler
+    version: 9.19.0

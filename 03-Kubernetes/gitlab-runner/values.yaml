@@ -1,0 +1,65 @@
+gitlab-runner:
+  gitlabUrl: https://gitlab.com
+  runnerRegistrationToken: GR1348941sS8tYnrF82kL6hBANz16 # To update if you change the Gitlab group
+
+  terminationGracePeriodSeconds: 3600
+  concurrent: 200
+  checkInterval: 5
+
+  rbac:
+    create: true
+    rules:
+      - apiGroups: ["*"]
+        resources: ["*"]
+        verbs: ["*"]
+    clusterWideAccess: true
+#    serviceAccountAnnotations:
+#      eks.amazonaws.com/role-arn: arn:aws:iam::334033969502:role/gitlab
+
+  runners:
+    config: |
+      listen_address = ":9252"
+      [[runners]]
+        [runners.kubernetes]
+          image = "ubuntu:20.04"
+          namespace = "gitlab"
+          poll_timeout = 600
+          cpu_request = "3000m"
+          cpu_limit = "3000m"
+          memory_request = "4Gi"
+          memory_limit = "4Gi"
+          helper_memory_request = "256Mi"
+          helper_memory_limit = "256Mi"
+          service_memory_request = "64Mi"
+          service_memory_limit = "646Mi"
+          service_account = "gitlab-runner"
+          privileged = true
+          [runners.kubernetes.pod_labels]
+            ci_executor = "$CI_RUNNER_DESCRIPTION"
+            ci_job = "$CI_BUILD_ID"
+          [[runners.kubernetes.volumes.empty_dir]]
+            name = "docker-certs"
+            mount_path = "/certs/client"
+            medium = "Memory"
+        [runners.feature_flags]
+          FF_SCRIPT_SECTIONS = true
+          FF_GITLAB_REGISTRY_HELPER_IMAGE = true
+        [runners.cache]
+          Type = "s3"
+          Path = "runner"
+          Shared = true
+          [runners.cache.s3]
+            ServerAddress = "s3.amazonaws.com"
+            BucketName = "FIX_ME" # <= FIX_ME
+            BucketLocation = "eu-west-3"
+            Insecure = false
+    executor: kubernetes
+    tags: "kubernetes,padok"
+
+  resources:
+    requests:
+      cpu: 500m
+      memory: 256Mi
+    limits:
+      cpu: 500m
+      memory: 256Mi

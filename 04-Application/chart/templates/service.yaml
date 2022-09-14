@@ -1,0 +1,18 @@
+{{ if (list nil true | has .Values.service.enabled) }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "chart.fullname" . }}
+  labels:
+{{ include "chart.labels" . | indent 4 }}
+spec:
+  selector:
+    app.kubernetes.io/name: {{ include "chart.name" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+  type: {{ .Values.service.type }}
+  ports:
+    - name: http
+      port: {{ .Values.service.port }}
+      targetPort: {{ .Values.container.port }}
+      protocol: TCP
+{{ end }}
