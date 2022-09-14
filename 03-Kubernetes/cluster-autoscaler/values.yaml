@@ -1,0 +1,50 @@
+cluster-autoscaler:
+  autoDiscovery:
+    enabled: true
+    clusterName: FIX_ME # FIX_ME with the name of your cluster
+
+  # Only cloudProvider `aws` and `gce` are supported by auto-discovery at this time
+  # AWS: Set tags as described in https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/  aws/README.md#auto-discovery-setup
+
+  # Required if cloudProvider=aws
+  awsRegion: eu-west-3
+
+  cloudProvider: aws
+
+  extraArgs:
+    expander: least-waste
+    scale-down-enabled: true
+
+  rbac:
+    create: true
+    ## If true, create & use Pod Security Policy resources
+    ## https://kubernetes.io/docs/concepts/policy/pod-security-policy/
+    pspEnabled: false
+    serviceAccount:
+      # rbac.serviceAccount.create -- If `true` and `rbac.create` is also true, a Service Account will be created.
+      create: true
+      # rbac.serviceAccount.name -- The name of the ServiceAccount to use. If not set and create is `true`, a name is   generated using the fullname template.
+      name: ""
+      # rbac.serviceAccount.automountServiceAccountToken -- Automount API credentials for a Service Account.
+      automountServiceAccountToken: true
+
+      annotations:
+        eks.amazonaws.com/role-arn: arn:aws:iam::334033969502:role/cluster_autoscaler_<FIX_ME> # FIX_ME with the value of owner
+
+  image:
+    repository: k8s.gcr.io/autoscaling/cluster-autoscaler
+    pullPolicy: IfNotPresent
+    tag: v1.21.1 # Follows cluster versions schemes: controle plane 1.18 -> tag v1.18.x
+
+  # Defaults to "ClusterFirst". Valid values are
+  # 'ClusterFirstWithHostNet', 'ClusterFirst', 'Default' or 'None'
+  # autoscaler does not depend on cluster DNS, recommended to set this to "Default"
+  dnsPolicy: "Default"
+
+  resources:
+    requests:
+      cpu: 50m
+      memory: 256Mi
+    limits:
+      cpu: 100m
+      memory: 400Mi

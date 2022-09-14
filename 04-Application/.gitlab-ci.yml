@@ -1,0 +1,40 @@
+stages:
+  - build
+  - deploy
+
+.tags:
+  tags:
+    - kubernetes
+    - padok
+
+# This job build our docker image with our App
+# Once the image built, it push  the image to our private ECR registry
+# Permissions are already set to allow Gitlab to access the registry
+build:
+  stage: build
+  image: public.ecr.aws/zero-downtime/buildah-awscli:v1.22.0
+  extends:
+    - .tags
+  variables:
+    AWS_DEFAULT_REGION: eu-west-3
+    ECR: dkr.ecr.eu-west-3.amazonaws.com
+    REPO: guillaume/demo-k8s # remplace FIX_ME with your name
+    TAG: latest
+  script:
+    - echo "Login to ECR ..."
+    - ACCOUNT_ID=$(aws sts get-caller-identity --query "Account" --output text)
+    - aws ecr get-login-password | buildah login --username AWS --password-stdin ${ACCOUNT_ID}.${ECR}
+    - echo "Building image ..."
+    - buildah bud -t ${REPO}:${TAG} --build-arg VERSION=$(date +%s) .
+    - echo "Pushing the image to ECR ..."
+    - buildah tag ${REPO}:${TAG} ${ACCOUNT_ID}.${ECR}/${REPO}:${TAG}
+    - buildah push ${ACCOUNT_ID}.${ECR}/${REPO}:${TAG}
+
+# This job will deploy our application based on our Kube manifest
+release:
+  image: alpine/helm:latest
+  stage: deploy
+  extends:
+    - .tags
+  script:
+    - helm upgrade --install -n demo --create-namespace=true demo-k8s chart
