@@ -12,7 +12,7 @@ To simulate a crash, there is a route in our API that will "crash" (exit 1) the 
 
 - [ ] Get your pod name
 - [ ] Watch the log of your pod with `kubectl logs <POD_NAME> -f`
-- [ ] In antoher shell, use `curl` to call the `/panic` route of your api
+- [ ] In another shell, use `curl` to call the `/panic` route of your api
 - [ ] In the first shell, you will see that the pod terminated
 - [ ] Check running pod at see that your pod is available again
 - [ ] Look at the `RESTARTS` counter, it is not at `1` (the container has been restarted)
@@ -39,9 +39,9 @@ Autoscaling mean that your system will scale (grow) automatically based on some 
 Sometimes, applications metrics could alos be use, like the number of message waiting in a queue.
 Autoscaling will help your applications to handle the load under all scenario while when no resources are needed (for example during the nigh), the system will use less resources and will cost less.
 
-To simulate a heavy load on our application, we will use `vegeta` tools to send thousand of requets to overload the current pod and force Kube to start other pod.
+To simulate a heavy load on our application, we will use `vegeta` tools to send thousand of requests to overload the current pod and force Kube to start other pod.
 
-The systeme responsible of scaling the pod (horizontally) is named [HPA](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) for **H**orizontal **P**od **A**utoscaling.
+The system responsible of scaling the pod (horizontally) is named [HPA](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) for **H**orizontal **P**od **A**utoscaling.
 
 - [ ] Get the HPA information for the application
 - [ ] Get the current usage of CPU and memory for your running pod
