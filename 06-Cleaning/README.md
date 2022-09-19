@@ -22,7 +22,7 @@ Easy !
 
 **⚙️ Exercice 2:** Delete your infrastructure with terraform
 
-All others components will be delete by terraform (or deleted while deleting underlying ressources like EKS).
+All others components will be deleted by terraform (or deleted while deleting underlying ressources like EKS).
 
 - [ ] Go to the `02-InfrastructureAsCode/` directory
 - [ ] Use the `destroy` command for terraform
@@ -31,7 +31,7 @@ All others components will be delete by terraform (or deleted while deleting und
 
 All your infrastructure is gone 🪦
 
-Easy to deploy, easy to destroy. That's why IaC is so powerfull.
+Easy to deploy, easy to destroy. That's why IaC is so powerful.
 
 ```
  _____  _     _____   _____ _      ____ 

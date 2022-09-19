@@ -17,11 +17,11 @@ Covered topics:
 
 This dojo is organised in several parts to cover all these subjects.
 
-Since each of the topic could be a good choice for an entire Dojo, we will not deep dive. We will focus on basics and real working example. It's always satisfaying to achieve things even if there is some "magics" part that we don't undestand (for now !).
+Since each of the topic could be a good choice for an entire Dojo, we will not deep dive. We will focus on basics and real working example. It's always satisfying to achieve things even if there is some "magics" part that we don't understand (for now!).
 
-If you have any question, any issue or you want to know more about something, don't hesitate to ask a question !
+If you have any question, any issue or you want to know more about something, don't hesitate to ask!
 
-For each exercice, there is a hint or the solution provided. First, try to do the exercice and find the solution by yourself. You can also ask to a member of Padok (and of course you can ask Google too). Don't get stuck on something and use the hint wisely.
+For each exercise, there is a hint or the solution provided. First, try to do the exercise and find the solution by yourself. You can also ask to a member of Padok (and of course you can ask Google too). Don't get stuck on something and use the hint wisely.
 
 # Part 0 - Initialization (~5 mins)
 
@@ -47,7 +47,7 @@ That's all for now, we will back later to Gitlab. You can move to the next part.
 
 [Go to part 3](./03-Kubernetes/README.md)
 
-# Part 4. Applicatin (~30 mins)
+# Part 4. Application (~30 mins)
 
 [Go to part 4](./04-Application/README.md)
 
@@ -55,6 +55,6 @@ That's all for now, we will back later to Gitlab. You can move to the next part.
 
 [Go to part 5](./05-PlayWithKube/README.md)
 
-# Part 6. Cleaing (~10 mins)
+# Part 6. Cleaning (~10 mins)
 
 [Go to part 6](./06-Cleaning/README.md)

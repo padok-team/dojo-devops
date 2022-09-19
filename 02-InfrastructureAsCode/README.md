@@ -6,7 +6,7 @@ From [Wikipedia](https://en.wikipedia.org/wiki/Infrastructure_as_code)
 
 In other words: it's easier to manage your infrastructure (physical or virtual components) with code in particular combined with Git.
 
-In this part we will use [Terraform](https://www.terraform.io/) from [Hashicorp](https://www.hashicorp.com/), which is the most popular tool for IaC, to deploy the infrastructure needed for our Web Application.
+In this part we will use [Terraform](https://www.terraform.io/) from [Hashicorp](https://www.hashicorp.com/), which is the most popular tool for Cloud IaC, to deploy the infrastructure needed for our Web Application.
 
 **🏆 Objective:** Deploy the infrastructure needed to deploy our application
 
@@ -18,7 +18,7 @@ In this part we will use [Terraform](https://www.terraform.io/) from [Hashicorp]
 - The code is provided inside the related directory 
 - The file `01-locals.tf` contains the configuration that you need to provide to be able to deploy the network layer
 
-- [ ] Edit the file and complete the variables with `FIX_ME` value. For the CIDR provide a `/20` private CIDR.
+- [ ] Edit the file and change the variables with a `FIX_ME` value. For the CIDR provide a `/20` private CIDR.
 - [ ] We need to initialize your terraform configuration with the `init` command. Initialization will download all dependencies.
 - [ ] Run terraform with the `plan` command to look at what terraform will do (and catch errors ^^)
 - [ ] Run terraform with the `apply` command to create the network part on AWS
@@ -124,7 +124,7 @@ kubectl get pods -A # -A mean on all namespace
 - [ ] Rename the file `03-ecr.tbd` in `03-ecr.tf` to instruct Terraform to execute the instruction in this file
 - [ ] Check what terraform will demo
 - [ ] Fix the error by uncomment the missing variable in `01-locals.tf`
-- [ ] Like previous exercices, review the change that terraform will apply and them, apply
+- [ ] Like previous exercices, review the change that terraform will apply and then, apply
 - [ ] Use AWS CLI or the AWS Console to check your repository added
 
 Your ECR is fully operational. Move to the next exercice to finish the deployment of the infrastructure with a S3 bucket for Gitlab runner caching.
