@@ -30,7 +30,7 @@ For each exercice, there is a hint or the solution provided. First, try to do th
 - [ ] And Clone this repo on your desktop
 
 ```
-git clonegit@github.com:padok-team/dojo-devops.git
+git clone git@github.com:padok-team/dojo-devops.git
 ```
 
 That's all for now, we will back later to Gitlab. You can move to the next part.

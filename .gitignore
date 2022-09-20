@@ -4,3 +4,6 @@ terraform.tfstate*
 charts/
 requirements.lock
 Chart.lock
+.envrc
+.env
+.aws

@@ -160,23 +160,5 @@ aws ecr describe-repositories
 - [ ] Rename the file `04-gitlab.tbd` in `04-gitlab.tf` to instruct Terraform to execute the instruction in this file
 - [ ] Like previous exercices, review the change that terraform will apply and them, apply
 - [ ] Them apply your change with terraform
-- [ ] Use AWS CLI or the AWS Console to check your s3 bucket
-
-<details>
-<summary>Hint 1</summary>
-Example of Gitlab caching S3 uniq name
-```
-padok-dojo-gitlab-caching-guillaume
-```
-</details>
-
-<details>
-<summary>Hint 2</summary>
-Get the list of your bucket with AWS CLI:
-
-```
-aws s3api list-buckets
-```
-</details>
 
 **😻 Our infrastructure is UP and RUNNING, we can move the the next part !**
