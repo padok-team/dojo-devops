@@ -1,7 +1,6 @@
 .terraform*
 tfstate/
 terraform.tfstate*
-charts/
 requirements.lock
 Chart.lock
 .envrc
