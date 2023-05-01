@@ -23,14 +23,31 @@ If you have any question, any issue or you want to know more about something, do
 
 For each exercise, there is a hint or the solution provided. First, try to do the exercise and find the solution by yourself. You can also ask to a member of Padok (and of course you can ask Google too). Don't get stuck on something and use the hint wisely.
 
-# Part 0 - Initialization (~5 mins)
+# Part 0 - Initialization (~5-10 mins)
+
+While this repo is hosted on Github, we will use Gitlab.com for the CI/CD part. So, we will push our code on Gitlab.com.
+
+- [ ] Clone this repo
+
+```bash
+git clone https://github.com/padok-team/dojo-devops.git
+```
 
 - [ ] Connect to Gitlab.com with your account
-- [ ] Create a new project Blank Project (don't check `Initialize repository with a README`)
-- [ ] And Clone this repo on your desktop
 
-```
-git clone git@github.com:padok-team/dojo-devops.git
+![Gitlab connect](./.assets/gitlab-connect.png)
+
+- [ ] Create a new project Blank Project (don't check `Initialize repository with a README`)
+
+![Gitlab create project](./.assets/gitlab-create-project.png)
+
+- [ ] Push this repo into Gitlab. You'll need to add an SSH key or get an access token.
+
+```bash
+git remote rename origin github
+git remote add origin https://gitlab.com/<your_repo>.git
+git push -u origin --all
+git push -u origin --tags
 ```
 
 That's all for now, we will back later to Gitlab. You can move to the next part.

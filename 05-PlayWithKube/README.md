@@ -49,10 +49,10 @@ The system responsible of scaling the pod (horizontally) is named [HPA](https://
 
 Since the default route of our application doesn't consome too much CPU even under high load, there is another root that use more CPU for each request avaiable: `/load`. Calling this endpoint at high frequency will consomme a lot of CPU that will help to trigger the HPA
 
-- [ ] We will use `vegata` to overload our API. Create a file `targets.txt` like the example below:
+- [ ] We will use `vegeta` to overload our API. Create a file `targets.txt` like the example below:
 
 ```
-GET http://<YOUR_PUBLIC_ENDPOINT>/panic
+GET http://<YOUR_PUBLIC_ENDPOINT>/load
 ```
 
 - `vegeta` is a load testing tool useful to stress application.
@@ -60,7 +60,7 @@ GET http://<YOUR_PUBLIC_ENDPOINT>/panic
 - [ ] Use `vegeta` like in the example below to overload your application:
 
 ```
-vegeta attack -rate=15/s -targets target > /dev/null
+vegeta attack -rate=15/s -targets targets.txt > /dev/null
 ```
 
 - [ ] Watch the CPU use of your current pod. After a few seconds, you will see that the number increase (almost `1000Mi`)
