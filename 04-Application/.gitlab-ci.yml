@@ -7,6 +7,9 @@ stages:
     - kubernetes
     - padok
 
+before_script:
+  - cd 04-Application # Change directory to the application folder if needed
+
 # This job build our docker image with our App
 # Once the image built, it push  the image to our private ECR registry
 # Permissions are already set to allow Gitlab to access the registry
