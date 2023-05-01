@@ -15,7 +15,7 @@ Don't worry if you don't know AWS or the service that we will use. Everything is
 - [ ] Once connected, click on your name on the top right menu and select **[Security Credentials](https://us-east-1.console.aws.amazon.com/iam/home?region=eu-west-3#/security_credentials)**
 - [ ] Next, in the section "Access keys for CLI, SDK, & API access" click on "Create access Key"
 - [ ] Your Access key is created, now you need to record it on your machine
-- There is two methods
+- There are two methods
     - [ ] **Method 1:** Let yourself be guided by `aws configure` command
     - [ ] **Method 2:** Copy the values and create the file manually
 
