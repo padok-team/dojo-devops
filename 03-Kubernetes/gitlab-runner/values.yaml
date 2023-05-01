@@ -14,7 +14,7 @@ gitlab-runner:
         verbs: ["*"]
     clusterWideAccess: true
     serviceAccountAnnotations:
-      eks.amazonaws.com/role-arn: arn:aws:iam::334033969502:role/gitlab_runner_<FIX_ME>
+      eks.amazonaws.com/role-arn: FIX_ME # Set the ARN of the role you created for the gitlab-runner, see terraform outputs
 
   runners:
     config: |

@@ -1,7 +1,7 @@
 
 container:
   image:
-    repository: 405157225880.dkr.ecr.eu-west-3.amazonaws.com/dixneuf19/demo-k8s # TODO add tf output
+    repository: FIX_ME # Use terraform output or console
     tag: latest
     pullPolicy: Always
   port: 8080
