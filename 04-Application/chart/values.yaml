@@ -1,7 +1,7 @@
 
 container:
   image:
-    repository: 334033969502.dkr.ecr.eu-west-3.amazonaws.com/FIX_ME/demo-k8s
+    repository: 405157225880.dkr.ecr.eu-west-3.amazonaws.com/dixneuf19/demo-k8s # TODO add tf output
     tag: latest
     pullPolicy: Always
   port: 8080
