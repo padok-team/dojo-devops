@@ -34,7 +34,7 @@ cluster-autoscaler:
   image:
     repository: k8s.gcr.io/autoscaling/cluster-autoscaler
     pullPolicy: IfNotPresent
-    tag: v1.21.1 # Follows cluster versions schemes: controle plane 1.18 -> tag v1.18.x
+    tag: v1.25.1 # Follows cluster versions schemes: controle plane 1.18 -> tag v1.18.x
 
   # Defaults to "ClusterFirst". Valid values are
   # 'ClusterFirstWithHostNet', 'ClusterFirst', 'Default' or 'None'
