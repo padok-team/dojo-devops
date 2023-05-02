@@ -29,12 +29,12 @@ cluster-autoscaler:
       automountServiceAccountToken: true
 
       annotations:
-        eks.amazonaws.com/role-arn: arn:aws:iam::334033969502:role/cluster_autoscaler_<FIX_ME> # FIX_ME with the value of owner
+        eks.amazonaws.com/role-arn: FIX_ME # Set the ARN of the role you created for the cluster-autoscaler, see terraform outputs
 
   image:
     repository: k8s.gcr.io/autoscaling/cluster-autoscaler
     pullPolicy: IfNotPresent
-    tag: v1.21.1 # Follows cluster versions schemes: controle plane 1.18 -> tag v1.18.x
+    tag: v1.25.1 # Follows cluster versions schemes: controle plane 1.18 -> tag v1.18.x
 
   # Defaults to "ClusterFirst". Valid values are
   # 'ClusterFirstWithHostNet', 'ClusterFirst', 'Default' or 'None'

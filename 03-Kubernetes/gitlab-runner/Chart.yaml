@@ -6,4 +6,4 @@ version: 0.1.0
 dependencies:
   - name: gitlab-runner
     repository: https://charts.gitlab.io
-    version: 0.41.0
+    version: 0.52.0

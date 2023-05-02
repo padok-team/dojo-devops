@@ -15,22 +15,26 @@ Don't worry if you don't know AWS or the service that we will use. Everything is
 - [ ] Once connected, click on your name on the top right menu and select **[Security Credentials](https://us-east-1.console.aws.amazon.com/iam/home?region=eu-west-3#/security_credentials)**
 - [ ] Next, in the section "Access keys for CLI, SDK, & API access" click on "Create access Key"
 - [ ] Your Access key is created, now you need to record it on your machine
-- [ ] Open your shell and create a directory `.aws` at the root of your home directory
-- [ ] Create a file `credentials` inside this directory and copy the following content with the values from the AWS console
+- There are two methods
+    - [ ] **Method 1:** Let yourself be guided by `aws configure` command
+    - [ ] **Method 2:** Copy the values and create the file manually
 
-```
-[default]
-aws_access_key_id=AKIAxxxxxx
-aws_secret_access_key=xxxxxx
-```
+        - [ ] Open your shell and create a directory `.aws` at the root of your home directory
+        - [ ] Create a file `credentials` inside this directory and copy the following content with the values from the AWS console
 
-- [ ] Create a file `config` inside the same directory and copy the following content 
+        ```
+        [default]
+        aws_access_key_id=AKIAxxxxxx
+        aws_secret_access_key=xxxxxx
+        ```
 
-```
-[default]
-region=eu-west-3
-output=json
-```
+        - [ ] Create a file `config` inside the same directory and copy the following content 
+
+        ```
+        [default]
+        region=eu-west-3
+        output=json
+        ```
 
 - [ ] Now you can test your access to AWS
 

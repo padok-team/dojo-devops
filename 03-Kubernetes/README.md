@@ -18,13 +18,13 @@ From [Wikipedia](https://en.wikipedia.org/wiki/Kubernetes)
 - We are doing to deploy our first component on Kubernetes : `cluster-autoscaler`. It will be used to scale the number of nodes regarding the needs of pods.
 - We need to configure a little bit cluster-autoscaler beforing deploying it
 
-- [ ] Edit the file `cluster-autoscaler/values.yaml` and set your cluster name for `clusterName` parameter (should be the same value that you put in `01-locals.tf` in `owner` parameter)
-- [ ] In the same file, set the value for `eks.amazonaws.com/role-arn`: use the value of `owner` that your put in `01-locals.tf` in `owner` parameter)
+- [ ] Edit the file `cluster-autoscaler/values.yaml` and set your cluster name for `clusterName` parameter (you can get it with `terraform output`).
+- [ ] In the same file, set the value for `eks.amazonaws.com/role-arn` parameter. You can get the value with `terraform output`
 - [ ] Then, deploy cluster-autoscaler on your cluster : `helm upgrade --install cluster-autoscaler cluster-autoscaler -n cluster-autoscaler --create-namespace=true`
 - [ ] Once finished, check your deployment status with `kubectl`. Don't forget that resources are deployed in namespaces !
 - [ ] For the Gitlab runner, edit the file `gitlab-runner/values.yaml` and replace the value for `runnerRegistrationToken`. To get a token, go to your `Gitlab Repository > Settings > CI/CD > Runner >  Specific runners` and copy the token.
 - [ ] Also, change the value for `eks.amazonaws.com/role-arn` like for `cluster-autoscaler`
-- [ ] Then, install `gitlab-runner` 
+- [ ] Then, install `gitlab-runner`
 - [ ] Process in the same way for `ingress-nginx` (no configuration is needed)
 - [ ] Check the status of your new deployments
 - [ ] Last, deploy a component to get metrics (monitoring) for our pods:
@@ -78,6 +78,6 @@ To deploy Gitlab runner and Nginx Ingress
 
 ```
 helm upgrade --install gitlab-runner gitlab-runner -n gitlab --create-namespace=true
-helm upgrade --install ingress-nginx ingress-nginx -n nginx --create-namespace=true
+helm upgrade --install ingress-nginx ingress-nginx -n ingress-nginx --create-namespace=true
 ```
 </details>

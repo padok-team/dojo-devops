@@ -1,7 +1,7 @@
 locals {
 
   owner   = "FIX_ME" # lower case only
-  my_cidr = "FIX_ME" # (x.x.x.x/xx)
+  my_cidr = "10.0.0.0/20" # (x.x.x.x/xx)
   my_ip   = "${jsondecode(data.curl.public_ip.response)["ip"]}/32"
   context = {
 
@@ -23,7 +23,7 @@ locals {
   #eks = {
   #  cluster = {
   #    name    = local.owner
-  #    version = "1.21"
+  #    version = "1.25"
   #  }
   #  node = {
   #    name           = "eks_node"
