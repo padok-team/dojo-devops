@@ -15,7 +15,7 @@ before_script:
 # Permissions are already set to allow Gitlab to access the registry
 build:
   stage: build
-  image: public.ecr.aws/zero-downtime/buildah-awscli:v1.22.0
+  image: public.ecr.aws/zero-downtime/buildah-awscli:v1.22.0@sha256:d79e2ce427fe150871bd8b69defbeb5f2d8f77e8fd4e48d3a1827b4fa3fc5654
   extends:
     - .tags
   variables:
@@ -35,7 +35,7 @@ build:
 
 # This job will deploy our application based on our Kube manifest
 release:
-  image: alpine/helm:latest
+  image: alpine/helm:latest@sha256:41200a060e77b87ad8fa72aaa8789959043aa8472f3d12e0bad1cbef3765ac8e
   stage: deploy
   extends:
     - .tags
