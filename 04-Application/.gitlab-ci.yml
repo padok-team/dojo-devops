@@ -35,7 +35,7 @@ build:
 
 # This job will deploy our application based on our Kube manifest
 release:
-  image: alpine/helm:latest
+  image: alpine/helm:latest@sha256:76c375eed56144c68d6197c55bc5a4552fb42002190b796729901cbab3ae6e51
   stage: deploy
   extends:
     - .tags
